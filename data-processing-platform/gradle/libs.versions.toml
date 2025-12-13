@@ -1,0 +1,59 @@
+[versions]
+# libs
+frtu-libs = "2.0.15"
+frtu-logs = "1.1.5"
+
+# flink
+flink = "1.20.1"
+flink-kafka = "3.4.0-1.20"
+
+# middleware
+kafka = "3.9.1"
+
+# core
+jackson = "2.13.2"
+logback = "1.4.14"
+
+# base
+kotlin = "1.9.25"
+coroutines = "1.7.2"
+
+# test
+kotest = "5.9.1"
+mockk = "1.14.3"
+
+[libraries]
+# frtu libs
+frtu-utils = { group = "com.github.frtu.libs", name = "lib-utils", version.ref = "frtu-libs" }
+frtu-serdes-json = { group = "com.github.frtu.libs", name = "lib-serdes-json", version.ref = "frtu-libs" }
+frtu-logs = { group = "com.github.frtu.logs", name = "logger-core", version.ref = "frtu-logs" }
+
+# flink
+flink-java = { group = "org.apache.flink", name = "flink-java", version.ref = "flink" }
+flink-streaming-java = { group = "org.apache.flink", name = "flink-streaming-java", version.ref = "flink" }
+flink-clients = { group = "org.apache.flink", name = "flink-clients", version.ref = "flink" }
+flink-connector-base = { group = "org.apache.flink", name = "flink-connector-base", version.ref = "flink" }
+flink-connector-files = { group = "org.apache.flink", name = "flink-connector-files", version.ref = "flink" }
+flink-connector-kafka = { group = "org.apache.flink", name = "flink-connector-kafka", version.ref = "flink-kafka" }
+
+# middleware
+kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "kafka" }
+
+# serialization
+jackson-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
+
+# core
+log-logback = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+
+# coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+
+# test
+test-runner = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+test-assertions = { group = "io.kotest", name = "kotest-assertions-core-jvm", version.ref = "kotest" }
+test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+
+[plugins]
+kotlin-multiplaform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

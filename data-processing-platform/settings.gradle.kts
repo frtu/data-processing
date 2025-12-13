@@ -1,3 +1,18 @@
 rootProject.name = "data-processing-platform"
 
-include()
+includeBuild("build-support")
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
