@@ -4,3 +4,7 @@
 
 * Run command `claude` in this directory.
 * Tell claude `inside the attached execution plan file, execute the next instruction which doesn't have a [X]. If the instruction is asking you to generate code, you should do it. Add a [X] once completed.You should execute one instruction only!`
+
+## BMAD Method
+
+* See [The Official BMad-Method Masterclass (The Complete IDE Workflow)](https://www.youtube.com/watch?v=LorEJPrALcg&t=670s)
