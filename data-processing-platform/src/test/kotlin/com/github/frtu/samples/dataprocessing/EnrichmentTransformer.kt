@@ -1,6 +1,6 @@
 package com.github.frtu.samples.dataprocessing
 
-import com.github.frtu.dataprocessing.framework.Transform
+import com.github.frtu.dataprocessing.framework.Transformer
 import com.github.frtu.dataprocessing.framework.TransformContext
 import com.github.frtu.samples.dataprocessing.model.input.Email
 import com.github.frtu.samples.dataprocessing.model.output.EmailEntity
@@ -9,7 +9,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 
-class EnrichmentTransform: Transform<Email, EmailEntity> {
+class EnrichmentTransformer: Transformer<Email, EmailEntity> {
     override fun process(input: Email, ctx: TransformContext): EmailEntity? {
         return EmailEntity(
             receiver = enrichReceiver(input),

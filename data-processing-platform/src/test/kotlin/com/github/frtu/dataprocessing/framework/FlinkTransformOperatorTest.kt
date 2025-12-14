@@ -2,7 +2,7 @@ package com.github.frtu.dataprocessing.framework
 
 import com.github.frtu.samples.dataprocessing.model.input.Email
 import com.github.frtu.samples.dataprocessing.model.output.STATUS
-import com.github.frtu.samples.dataprocessing.transform.EmailTransform
+import com.github.frtu.samples.dataprocessing.transform.EmailTransformer
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.junit5.MockKExtension
@@ -28,7 +28,7 @@ class FlinkTransformOperatorTest {
 			updatedTimeMillis = 1640995260000L  // 2022-01-01T00:01:00Z
 		)
 		val transformContext = mockk<TransformContext>()
-		val emailTransform = EmailTransform()
+		val emailTransform = EmailTransformer()
 
 		// when
 		val result = emailTransform.process(inputEmail, transformContext)

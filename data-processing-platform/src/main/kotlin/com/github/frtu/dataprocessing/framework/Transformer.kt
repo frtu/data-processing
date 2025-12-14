@@ -1,5 +1,5 @@
 package com.github.frtu.dataprocessing.framework
 
-interface Transform<I, O> {
+interface Transformer<I, O> {
     fun process(input: I, ctx: TransformContext): O?
 }
