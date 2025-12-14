@@ -1,5 +1,6 @@
 package com.github.frtu.samples.dataprocessing.transform
 
+import com.github.frtu.dataprocessing.framework.Step
 import com.github.frtu.dataprocessing.framework.Transformer
 import com.github.frtu.dataprocessing.framework.TransformContext
 import com.github.frtu.dataprocessing.framework.utils.TypedJsonDeserializerFunction
@@ -7,10 +8,12 @@ import com.github.frtu.samples.dataprocessing.model.input.Email
 import com.github.frtu.samples.dataprocessing.model.input.EmailDetail
 import com.github.frtu.samples.dataprocessing.model.output.EmailEntity
 import com.github.frtu.samples.dataprocessing.model.output.STATUS
+import com.github.frtu.samples.dataprocessing.transform.EmailTransformer.Companion.FINAL_TRANSFORM_STEP_NAME
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 
+@Step(FINAL_TRANSFORM_STEP_NAME)
 class EmailTransformer(
     private val typedJsonDeserializerFunction: TypedJsonDeserializerFunction<EmailDetail>
 ) : Transformer<Email, EmailEntity> {
@@ -29,5 +32,9 @@ class EmailTransformer(
 
     private fun convertToLocalDateTime(epochMillis: Long): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMillis), ZoneId.systemDefault())
+    }
+
+    companion object {
+        const val FINAL_TRANSFORM_STEP_NAME = "final"
     }
 }

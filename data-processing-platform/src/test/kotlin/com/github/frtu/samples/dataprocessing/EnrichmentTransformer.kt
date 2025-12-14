@@ -1,7 +1,9 @@
 package com.github.frtu.samples.dataprocessing
 
+import com.github.frtu.dataprocessing.framework.Step
 import com.github.frtu.dataprocessing.framework.Transformer
 import com.github.frtu.dataprocessing.framework.TransformContext
+import com.github.frtu.samples.dataprocessing.EnrichmentTransformer.Companion.ENRICH_TRANSFORM_STEP_NAME
 import com.github.frtu.samples.dataprocessing.model.input.Email
 import com.github.frtu.samples.dataprocessing.model.output.EmailEntity
 import com.github.frtu.samples.dataprocessing.model.output.STATUS
@@ -9,7 +11,8 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 
-class EnrichmentTransformer: Transformer<Email, EmailEntity> {
+@Step(ENRICH_TRANSFORM_STEP_NAME)
+class EnrichmentTransformer : Transformer<Email, EmailEntity> {
     override fun process(input: Email, ctx: TransformContext): EmailEntity? {
         return EmailEntity(
             receiver = enrichReceiver(input),
@@ -34,5 +37,9 @@ class EnrichmentTransformer: Transformer<Email, EmailEntity> {
 
     private fun convertToLocalDateTime(epochMillis: Long): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMillis), ZoneId.systemDefault())
+    }
+
+    companion object {
+        const val ENRICH_TRANSFORM_STEP_NAME = "enriched"
     }
 }
