@@ -21,8 +21,7 @@ plugins {
 
 group = "com.github.frtu.vm"
 description = "flink-pipeline"
-val mainClassName = "com.github.frtu.dataprocessing.samples.standalone.SplitWordCountWithWebUIKt"
-
+val mainClassName = "com.github.frtu.dataprocessing.framework.EventSanitizerKt"
 
 noArg {
     // Apply this magic constructor generation to any class with this annotation
@@ -38,9 +37,26 @@ dependencies {
     api(libs.flink.streaming.java)
     implementation(libs.flink.runtime.web)
     api(libs.flink.clients)
+
+    // Kafka
     api(libs.flink.connector.base)
     api(libs.flink.connector.kafka)
     api(libs.kafka.clients)
+
+    // Elasticsearch 8 client (ES)
+    implementation("co.elastic.clients:elasticsearch-java:8.16.0")
+    api(libs.flink.connector.es)
+
+    // ClickHouse (CH)
+    api(libs.flink.connector.jdbc)
+    implementation("ru.yandex.clickhouse:clickhouse-jdbc:0.3.2")
+
+    // Kryo serialization support
+    implementation("com.esotericsoftware:kryo:5.4.0")
+    api(libs.flink.runtime)
+    // Kotlin serialization for Flink
+    implementation("org.jetbrains.kotlin:kotlin-reflect:${libs.versions.kotlin.get()}")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
 
     // spring
     implementation("org.springframework:spring-context")

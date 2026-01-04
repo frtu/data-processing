@@ -5,7 +5,10 @@ import java.io.Serializable
 import java.util.Properties
 
 /**
- * Configuration class for Flink pipeline settings. * Loads configuration from application.properties or system properties. */@ValueObject
+ * Configuration class for Flink pipeline settings.
+ * Loads configuration from application.properties or system properties.
+ */
+@ValueObject
 data class FlinkConfig(
     val jobManagerHost: String,
     val jobManagerPort: Int,
@@ -26,7 +29,10 @@ data class FlinkConfig(
         private const val serialVersionUID = 1L
 
         /**
-         * Load configuration from application.properties file or system properties.         * Command line arguments take precedence over properties file.         */        fun load(args: Array<String> = emptyArray()): FlinkConfig {
+         * Load configuration from application.properties file or system properties.
+         * Command line arguments take precedence over properties file.
+         */
+        fun load(args: Array<String> = emptyArray()): FlinkConfig {
             val properties = Properties()
 
             // Load from application.properties file
