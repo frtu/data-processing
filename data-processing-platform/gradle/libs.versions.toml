@@ -5,7 +5,9 @@ frtu-logs = "1.1.5"
 
 # flink
 flink = "1.20.1"
+flink-jdbc = "3.3.0-1.20"
 flink-kafka = "3.4.0-1.20"
+flink-es = "3.1.0-1.20"
 
 # middleware
 kafka = "3.9.1"
@@ -31,11 +33,14 @@ frtu-logs = { group = "com.github.frtu.logs", name = "logger-core", version.ref 
 # flink
 flink-java = { group = "org.apache.flink", name = "flink-java", version.ref = "flink" }
 flink-streaming-java = { group = "org.apache.flink", name = "flink-streaming-java", version.ref = "flink" }
+flink-runtime = { group = "org.apache.flink", name = "flink-runtime", version.ref = "flink" }
 flink-runtime-web = { group = "org.apache.flink", name = "flink-runtime-web", version.ref = "flink" }
 flink-clients = { group = "org.apache.flink", name = "flink-clients", version.ref = "flink" }
 flink-connector-base = { group = "org.apache.flink", name = "flink-connector-base", version.ref = "flink" }
 flink-connector-files = { group = "org.apache.flink", name = "flink-connector-files", version.ref = "flink" }
+flink-connector-jdbc = { group = "org.apache.flink", name = "flink-connector-jdbc", version.ref = "flink-jdbc" }
 flink-connector-kafka = { group = "org.apache.flink", name = "flink-connector-kafka", version.ref = "flink-kafka" }
+flink-connector-es = { group = "org.apache.flink", name = "flink-connector-elasticsearch8", version.ref = "flink-es" }
 
 # middleware
 kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "kafka" }
