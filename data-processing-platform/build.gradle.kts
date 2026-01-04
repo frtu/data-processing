@@ -9,6 +9,7 @@ plugins {
 
     // Core
     kotlin("jvm") version kotlin
+    kotlin("plugin.noarg") version kotlin
     `java-library`
     `maven-publish`
     // shadow plugin to produce fat JARs
@@ -22,6 +23,11 @@ group = "com.github.frtu.vm"
 description = "flink-pipeline"
 val mainClassName = "com.github.frtu.dataprocessing.samples.standalone.SplitWordCountWithWebUIKt"
 
+
+noArg {
+    // Apply this magic constructor generation to any class with this annotation
+    annotation("com.github.frtu.kotlin.utils.data.ValueObject")
+}
 dependencies {
     // frtu libs
     implementation(libs.frtu.utils)
@@ -38,11 +44,7 @@ dependencies {
 
     // spring
     implementation("org.springframework:spring-context")
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.kafka:spring-kafka")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     // testImplementation("org.springframework.kafka:spring-kafka-test")
 
     // core
