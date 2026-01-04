@@ -63,6 +63,13 @@ dependencies {
     implementation("org.springframework.kafka:spring-kafka")
     // testImplementation("org.springframework.kafka:spring-kafka-test")
 
+    // apache beam
+//    api("org.apache.beam:beam-sdks-java-core:2.57.0")
+//    api("org.apache.beam:beam-runners-direct-java:2.57.0")
+//    api("org.apache.beam:beam-runners-flink:2.57.0")
+//    api("org.apache.beam:beam-sdks-java-io-kafka:2.57.0")
+//    testImplementation("org.apache.beam:beam-sdks-java-test-utils:2.57.0")
+
     // core
     implementation(libs.jackson.kotlin)
     implementation("ch.qos.logback:logback-classic")
