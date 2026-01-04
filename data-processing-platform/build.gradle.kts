@@ -20,7 +20,7 @@ plugins {
 
 group = "com.github.frtu.vm"
 description = "flink-pipeline"
-val mainClassName = "com.github.frtu.vm.sample.embedded.FlinkStreamingApplication"
+val mainClassName = "com.github.frtu.dataprocessing.samples.standalone.SplitWordCountWithWebUIKt"
 
 dependencies {
     // frtu libs
@@ -30,6 +30,7 @@ dependencies {
     // flink
     api(libs.flink.java)
     api(libs.flink.streaming.java)
+    implementation(libs.flink.runtime.web)
     api(libs.flink.clients)
     api(libs.flink.connector.base)
     api(libs.flink.connector.kafka)
